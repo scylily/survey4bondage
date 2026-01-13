@@ -704,7 +704,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">我们可能会有一些"身体接触"，你会接受拥抱吗？</label>
+                        <label class="form-label">我们可能会有一些“身体接触”，你会接受拥抱吗？</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="hug" value="yes" required>
@@ -829,7 +829,7 @@
             <p>感谢您填写问卷，我们会尽快与您联系确认细节。</p>
             <p>请记住：在活动开始前或过程中，您可随时撤销同意。</p>
             
-            <div class="action-buttons" style="margin-top: 2.5rem;">
+            <div class="action-buttons" style="margin-top: 40px;">
                 <button class="btn-action btn-primary" onclick="showConfirmation()">
                     <i class="fas fa-eye"></i> 查看已填写的调查表
                 </button>
@@ -858,8 +858,7 @@
                         <!-- 安全须知确认内容 -->
                     </div>
                 </div>
-            </div>
-                                        
+                                            
             <div class="confirmation-section">
                 <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-heartbeat"></i> 第二部分：参与者基本信息与健康声明</h3>
                 
@@ -886,20 +885,20 @@
                 <div class="confirmation-item">
                     <div class="confirmation-label">
                         <i class="fas fa-heartbeat"></i>
-                        <span>健康问题</span>
+                        <span>健康问题声明</span>
                     </div>
-                    <div class="confirmation-value" id="confMedicalHistory">
-                        <!-- 健康问题内容 -->
+                    <div class="confirmation-value" id="confMedical">
+                        <!-- 健康问题 -->
                     </div>
                 </div>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
-                        <i class="fas fa-gem"></i>
-                        <span>身体改造</span>
+                        <i class="fas fa-plus-square"></i>
+                        <span>身体穿孔/埋钉</span>
                     </div>
                     <div class="confirmation-value" id="confPiercings">
-                        <!-- 身体改造内容 -->
+                        <!-- 穿孔信息 -->
                     </div>
                 </div>
             </div>
@@ -909,11 +908,11 @@
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-exclamation-triangle"></i>
                         <span>安全词/安全动作</span>
                     </div>
                     <div class="confirmation-value" id="confSafeword">
-                        <!-- 安全词内容 -->
+                        <!-- 安全词 -->
                     </div>
                 </div>
                 
@@ -923,27 +922,17 @@
                         <span>裸露程度接受度</span>
                     </div>
                     <div class="confirmation-value" id="confTopless">
-                        <!-- 裸露程度内容 -->
+                        <!-- 裸露接受度 -->
                     </div>
                 </div>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
-                        <i class="fas fa-stethoscope"></i>
+                        <i class="fas fa-sticky-note"></i>
                         <span>身体痕迹接受度</span>
                     </div>
                     <div class="confirmation-value" id="confMarks">
-                        <!-- 痕迹接受度内容 -->
-                    </div>
-                </div>
-                
-                <div class="confirmation-item">
-                    <div class="confirmation-label">
-                        <i class="fas fa-ban"></i>
-                        <span>不可留痕区域</span>
-                    </div>
-                    <div class="confirmation-value" id="confNoMarksAreas">
-                        <!-- 不可留痕区域内容 -->
+                        <!-- 痕迹接受度 -->
                     </div>
                 </div>
                 
@@ -953,97 +942,37 @@
                         <span>不希望被触碰的部位</span>
                     </div>
                     <div class="confirmation-value" id="confNoTouch">
-                        <!-- 不希望被触碰部位内容 -->
+                        <!-- 不希望触碰的部位 -->
                     </div>
                 </div>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
-                        <i class="fas fa-unlink"></i>
+                        <i class="fas fa-ban"></i>
                         <span>不可捆绑的部位</span>
                     </div>
                     <div class="confirmation-value" id="confNoBondage">
-                        <!-- 不可捆绑部位内容 -->
+                        <!-- 不可捆绑的部位 -->
                     </div>
                 </div>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
-                        <i class="fas fa-tint"></i>
-                        <span>其他疼痛体验</span>
+                        <i class="fas fa-skull"></i>
+                        <span>疼痛相关偏好</span>
                     </div>
-                    <div class="confirmation-value" id="confOtherPain">
-                        <!-- 其他疼痛体验内容 -->
-                    </div>
-                </div>
-                
-                <div class="confirmation-item">
-                    <div class="confirmation-label">
-                        <i class="fas fa-brain"></i>
-                        <span>疼痛忍耐程度</span>
-                    </div>
-                    <div class="confirmation-value" id="confPainTolerance">
-                        <!-- 疼痛忍耐程度内容 -->
+                    <div class="confirmation-value" id="confPain">
+                        <!-- 疼痛偏好 -->
                     </div>
                 </div>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
-                        <i class="fas fa-check-double"></i>
-                        <span>可接受项目</span>
+                        <i class="fas fa-heart"></i>
+                        <span>互动偏好</span>
                     </div>
-                    <div class="confirmation-value" id="confAccepts">
-                        <!-- 可接受项目内容 -->
-                    </div>
-                </div>
-                
-                <div class="confirmation-item">
-                    <div class="confirmation-label">
-                        <i class="fas fa-hands"></i>
-                        <span>拥抱接受度</span>
-                    </div>
-                    <div class="confirmation-value" id="confHug">
-                        <!-- 拥抱接受度内容 -->
-                    </div>
-                </div>
-                
-                <div class="confirmation-item">
-                    <div class="confirmation-label">
-                        <i class="fas fa-eye-slash"></i>
-                        <span>五感剥夺兴趣</span>
-                    </div>
-                    <div class="confirmation-value" id="confSensoryDeprivation">
-                        <!-- 五感剥夺兴趣内容 -->
-                    </div>
-                </div>
-                
-                <div class="confirmation-item">
-                    <div class="confirmation-label">
-                        <i class="fas fa-low-vision"></i>
-                        <span>蒙眼接受度</span>
-                    </div>
-                    <div class="confirmation-value" id="confBlindfold">
-                        <!-- 蒙眼接受度内容 -->
-                    </div>
-                </div>
-                
-                <div class="confirmation-item">
-                    <div class="confirmation-label">
-                        <i class="fas fa-comment-slash"></i>
-                        <span>堵嘴接受度</span>
-                    </div>
-                    <div class="confirmation-value" id="confGag">
-                        <!-- 堵嘴接受度内容 -->
-                    </div>
-                </div>
-                
-                <div class="confirmation-item">
-                    <div class="confirmation-label">
-                        <i class="fas fa-wind"></i>
-                        <span>呼吸控制接受度</span>
-                    </div>
-                    <div class="confirmation-value" id="confBreathControl">
-                        <!-- 呼吸控制接受度内容 -->
+                    <div class="confirmation-value" id="confInteraction">
+                        <!-- 互动偏好 -->
                     </div>
                 </div>
                 
@@ -1053,304 +982,407 @@
                         <span>影像记录</span>
                     </div>
                     <div class="confirmation-value" id="confRecording">
-                        <!-- 影像记录内容 -->
+                        <!-- 影像记录 -->
                     </div>
                 </div>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
-                        <i class="fas fa-smile"></i>
-                        <span>期望氛围/情感</span>
+                        <i class="fas fa-feather-alt"></i>
+                        <span>期望的感受</span>
                     </div>
                     <div class="confirmation-value" id="confFeelings">
-                        <!-- 期望氛围/情感内容 -->
+                        <!-- 期望感受 -->
                     </div>
                 </div>
             </div>
             
+            <div class="privacy-note">
+                <p><strong>最终确认：</strong>本人确认，以上所填内容均真实有效。本人理解并认同"安全、理性、知情、同意"的原则，并知晓在活动开始前或过程中，可随时撤销同意。活动结束后，不可撤销已发生的同意。</p>
+            </div>
+            
             <div class="action-buttons">
-                <button class="btn-action btn-secondary" onclick="showForm()">
-                    <i class="fas fa-edit"></i> 返回编辑
+                <button class="btn-action btn-secondary" onclick="goBackToForm()">
+                    <i class="fas fa-arrow-left"></i> 返回修改
                 </button>
-                <button class="btn-action btn-primary" onclick="location.reload()">
-                    <i class="fas fa-redo"></i> 重新填写
+                <button class="btn-action btn-primary" onclick="printConfirmation()">
+                    <i class="fas fa-print"></i> 打印确认页
                 </button>
             </div>
         </div>
         
         <div class="footer">
-            <p>© 2023 绳缚体验知情同意与偏好调查表</p>
-            <p class="privacy-note">所有信息将严格保密，仅用于活动安全评估</p>
+            <p>© 2026 绳缚体验调查表 | 基于安全、理性、知情、同意的原则</p>
+            <p>此表格是双方沟通的起点，在活动开始前，我们将就填写内容进行面对面或线上交流，以最终确认所有细节。</p>
         </div>
     </div>
 
     <script>
         // 身体部位数据
         const bodyParts = [
-            { id: 'head', name: '头部', icon: 'fas fa-head' },
-            { id: 'neck', name: '颈部', icon: 'fas fa-neck' },
-            { id: 'chest', name: '胸部', icon: 'fas fa-venus' },
+            { id: 'hair', name: '头发', icon: 'fas fa-cut' },
+            { id: 'face', name: '面部', icon: 'fas fa-smile' },
+            { id: 'neck', name: '脖子', icon: 'fas fa-user' },
+            { id: 'chest', name: '胸部', icon: 'fas fa-glasses' },
             { id: 'arms', name: '手臂', icon: 'fas fa-hand-paper' },
-            { id: 'hands', name: '手部', icon: 'fas fa-hand' },
-            { id: 'waist', name: '腰部', icon: 'fas fa-ribbon' },
-            { id: 'hips', name: '臀部', icon: 'fas fa-hips' },
-            { id: 'thighs', name: '大腿', icon: 'fas fa-running' },
-            { id: 'knees', name: '膝盖', icon: 'fas fa-bone' },
-            { id: 'calves', name: '小腿', icon: 'fas fa-shoe-prints' },
-            { id: 'feet', name: '脚部', icon: 'fas fa-socks' },
-            { id: 'genitals', name: '私密部位', icon: 'fas fa-ban' }
+            { id: 'fingers', name: '手指', icon: 'fas fa-hand-point-up' },
+            { id: 'waist', name: '腰部', icon: 'fas fa-sort' },
+            { id: 'buttocks', name: '臀部', icon: 'fas fa-heart' },
+            { id: 'genitals', name: '私密部位', icon: 'fas fa-chevron-circle-down' },
+            { id: 'legs', name: '下肢', icon: 'fas fa-walking' },
+            { id: 'feet', name: '脚', icon: 'fas fa-shoe-prints' }
         ];
         
-        // 情感标签数据
-        const feelingTags = [
-            { id: 'relaxation', name: '放松', icon: 'fas fa-spa' },
-            { id: 'control', name: '被掌控', icon: 'fas fa-hand-holding' },
-            { id: 'vulnerability', name: '脆弱感', icon: 'fas fa-heart' },
-            { id: 'intimacy', name: '亲密感', icon: 'fas fa-users' },
-            { id: 'pain', name: '痛感', icon: 'fas fa-tint' },
-            { id: 'meditation', name: '冥想', icon: 'fas fa-om' },
-            { id: 'submission', name: '臣服', icon: 'fas fa-hands-helping' },
-            { id: 'trust', name: '信任', icon: 'fas fa-lock-open' }
+        // 感受标签数据
+        const feelings = [
+            '平静', '无助', '被控制', '羞辱', '受虐', '受难的', '色情', 
+            '情感释放', '充满活力', '偏技术无情感交流', '中立的，有些情感交流',
+            '爱抚的', '挑逗的', '粗鲁的', '无过多接触，单纯想感受绳子带来的束缚'
         ];
+        
+        // 存储用户填写的数据
+        let userFormData = {};
         
         // 初始化身体部位选择
-        function initBodyPartSelection(containerId, hiddenInputId) {
-            const container = document.getElementById(containerId);
-            const hiddenInput = document.getElementById(hiddenInputId);
+        function initBodyPartSelectors() {
+            const noTouchContainer = document.getElementById('noTouchAreas');
+            const noBondageContainer = document.getElementById('noBondageAreas');
             
             bodyParts.forEach(part => {
-                const item = document.createElement('div');
-                item.className = 'body-part-item';
-                item.dataset.id = part.id;
-                item.innerHTML = `
-                    <i class="${part.icon}"></i>
-                    <span>${part.name}</span>
-                `;
-                
-                item.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                    updateHiddenInput(container, hiddenInput);
+                // 不希望被触碰
+                const touchDiv = document.createElement('div');
+                touchDiv.className = 'body-part-item';
+                touchDiv.dataset.id = part.id;
+                touchDiv.dataset.name = part.name;
+                touchDiv.innerHTML = `<i class="${part.icon}"></i><span>${part.name}</span>`;
+                touchDiv.addEventListener('click', () => {
+                    touchDiv.classList.toggle('selected');
+                    updateHiddenInput('no_touch_input', 'noTouchAreas');
                 });
+                noTouchContainer.appendChild(touchDiv);
                 
-                container.appendChild(item);
+                // 不可捆绑
+                const bondageDiv = document.createElement('div');
+                bondageDiv.className = 'body-part-item';
+                bondageDiv.dataset.id = part.id;
+                bondageDiv.dataset.name = part.name;
+                bondageDiv.innerHTML = `<i class="${part.icon}"></i><span>${part.name}</span>`;
+                bondageDiv.addEventListener('click', () => {
+                    bondageDiv.classList.toggle('selected');
+                    updateHiddenInput('no_bondage_input', 'noBondageAreas');
+                });
+                noBondageContainer.appendChild(bondageDiv);
             });
         }
         
-        // 初始化情感标签选择
+        // 初始化感受标签
         function initFeelingTags() {
             const container = document.getElementById('feelingTags');
-            const hiddenInput = document.getElementById('feelings_input');
             
-            feelingTags.forEach(tag => {
-                const tagElement = document.createElement('div');
-                tagElement.className = 'feeling-tag';
-                tagElement.dataset.id = tag.id;
-                tagElement.innerHTML = `
-                    <i class="${tag.icon}"></i>
-                    <span>${tag.name}</span>
-                `;
-                
-                tagElement.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                    updateHiddenInput(container, hiddenInput);
+            feelings.forEach(feeling => {
+                const tag = document.createElement('div');
+                tag.className = 'feeling-tag';
+                tag.textContent = feeling;
+                tag.dataset.value = feeling;
+                tag.addEventListener('click', () => {
+                    tag.classList.toggle('selected');
+                    updateHiddenInput('feelings_input', 'feelingTags');
                 });
-                
-                container.appendChild(tagElement);
+                container.appendChild(tag);
             });
         }
         
         // 更新隐藏输入框的值
-        function updateHiddenInput(container, hiddenInput) {
+        function updateHiddenInput(inputId, containerId) {
+            const input = document.getElementById(inputId);
+            const container = document.getElementById(containerId);
             const selectedItems = container.querySelectorAll('.selected');
-            const selectedValues = Array.from(selectedItems).map(item => item.dataset.id);
-            hiddenInput.value = selectedValues.join(',');
+            
+            const values = Array.from(selectedItems).map(item => {
+                if (containerId === 'feelingTags') {
+                    return item.textContent;
+                } else {
+                    return item.dataset.id;
+                }
+            });
+            
+            input.value = values.join(',');
         }
         
-        // 显示成功消息
-        function showSuccessMessage() {
-            document.getElementById('formContent').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
+        // 收集所有表单数据
+        function collectFormData() {
+            const form = document.getElementById('ropeForm');
+            const formData = new FormData(form);
+            userFormData = {};
+            
+            // 收集所有表单字段
+            for (let [key, value] of formData.entries()) {
+                if (key === 'accepts[]') {
+                    if (!userFormData.accepts) userFormData.accepts = [];
+                    userFormData.accepts.push(value);
+                } else {
+                    userFormData[key] = value;
+                }
+            }
+            
+            // 收集身体部位选择
+            const noTouchItems = document.querySelectorAll('#noTouchAreas .selected');
+            userFormData.noTouchItems = Array.from(noTouchItems).map(item => ({
+                id: item.dataset.id,
+                name: item.dataset.name
+            }));
+            
+            const noBondageItems = document.querySelectorAll('#noBondageAreas .selected');
+            userFormData.noBondageItems = Array.from(noBondageItems).map(item => ({
+                id: item.dataset.id,
+                name: item.dataset.name
+            }));
+            
+            // 收集感受标签
+            const feelingItems = document.querySelectorAll('#feelingTags .selected');
+            userFormData.feelingItems = Array.from(feelingItems).map(item => item.textContent);
+            
+            return userFormData;
         }
         
         // 显示确认页面
         function showConfirmation() {
-            // 收集表单数据并填充确认页面
-            const form = document.getElementById('ropeForm');
-            const formData = new FormData(form);
+            // 隐藏成功消息，显示确认页面
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('confirmationPage').style.display = 'block';
             
-            // 填充第一部分
-            document.getElementById('confSafety').textContent = '是，我已理解并同意';
+            // 填充确认页面的数据
+            populateConfirmationPage();
+        }
+        
+        // 填充确认页面
+        function populateConfirmationPage() {
+            // 安全须知确认
+            document.getElementById('confSafety').innerHTML = 
+                `<p>✅ 已确认理解并同意所有安全须知内容</p>`;
             
-            // 填充第二部分
-            document.getElementById('confNickname').textContent = formData.get('nickname') || '未填写';
-            document.getElementById('confAdult').textContent = formData.get('adult') === 'yes' ? '是' : '否';
-            document.getElementById('confMedicalHistory').textContent = formData.get('medical_history') || '无';
-            document.getElementById('confPiercings').textContent = formData.get('piercings') || '无';
+            // 基本信息
+            document.getElementById('confNickname').innerHTML = 
+                `<p><strong>${userFormData.nickname || '未填写'}</strong></p>`;
             
-            // 填充第三部分
-            document.getElementById('confSafeword').textContent = formData.get('safeword') || '未设置';
-            document.getElementById('confTopless').textContent = formData.get('topless') === 'accept' ? '接受上半身赤裸' : '不接受';
-            document.getElementById('confMarks').textContent = formData.get('marks') === 'accept' ? '能接受' : '不能接受';
-            document.getElementById('confNoMarksAreas').textContent = formData.get('no_marks_areas') || '未指定';
+            document.getElementById('confAdult').innerHTML = 
+                `<p>${userFormData.adult === 'yes' ? '是' : '否'}</p>`;
+            
+            document.getElementById('confMedical').innerHTML = 
+                `<p>${userFormData.medical_history || '无'}</p>`;
+            
+            document.getElementById('confPiercings').innerHTML = 
+                `<p>${userFormData.piercings || '无'}</p>`;
+            
+            // 安全词
+            document.getElementById('confSafeword').innerHTML = 
+                `<p><strong>${userFormData.safeword || '未设置'}</strong></p>
+                 <p class="form-help">在紧急情况下说出此安全词或做出安全动作，将立即中止活动</p>`;
+            
+            // 裸露程度
+            document.getElementById('confTopless').innerHTML = 
+                `<p>${userFormData.topless === 'accept' ? '接受上半身赤裸' : '不接受上半身赤裸'}</p>
+                 <p class="form-help">注：下体需穿着内裤</p>`;
+            
+            // 痕迹接受度
+            let marksHtml = `<p>${userFormData.marks === 'accept' ? '能接受痕迹' : '不能接受痕迹'}</p>`;
+            if (userFormData.marks === 'not_accept' && userFormData.no_marks_areas) {
+                marksHtml += `<p class="form-help">不可留痕区域：${userFormData.no_marks_areas}</p>`;
+            }
+            document.getElementById('confMarks').innerHTML = marksHtml;
             
             // 不希望被触碰的部位
-            const noTouch = formData.get('no_touch');
-            const noTouchList = document.getElementById('confNoTouch');
-            noTouchList.innerHTML = '';
-            if (noTouch) {
-                noTouch.split(',').forEach(id => {
-                    const part = bodyParts.find(p => p.id === id);
-                    if (part) {
-                        const li = document.createElement('li');
-                        li.innerHTML = `<i class="${part.icon}"></i> ${part.name}`;
-                        noTouchList.appendChild(li);
-                    }
+            let noTouchHtml = '<ul>';
+            if (userFormData.noTouchItems && userFormData.noTouchItems.length > 0) {
+                userFormData.noTouchItems.forEach(item => {
+                    const part = bodyParts.find(p => p.id === item.id);
+                    noTouchHtml += `<li><i class="${part.icon}"></i> ${item.name}</li>`;
                 });
             } else {
-                noTouchList.innerHTML = '<li>未指定</li>';
+                noTouchHtml += '<li>无特殊限制</li>';
             }
+            noTouchHtml += '</ul>';
+            document.getElementById('confNoTouch').innerHTML = noTouchHtml;
             
             // 不可捆绑的部位
-            const noBondage = formData.get('no_bondage');
-            const noBondageList = document.getElementById('confNoBondage');
-            noBondageList.innerHTML = '';
-            if (noBondage) {
-                noBondage.split(',').forEach(id => {
-                    const part = bodyParts.find(p => p.id === id);
-                    if (part) {
-                        const li = document.createElement('li');
-                        li.innerHTML = `<i class="${part.icon}"></i> ${part.name}`;
-                        noBondageList.appendChild(li);
-                    }
+            let noBondageHtml = '<ul>';
+            if (userFormData.noBondageItems && userFormData.noBondageItems.length > 0) {
+                userFormData.noBondageItems.forEach(item => {
+                    const part = bodyParts.find(p => p.id === item.id);
+                    noBondageHtml += `<li><i class="${part.icon}"></i> ${item.name}</li>`;
                 });
             } else {
-                noBondageList.innerHTML = '<li>未指定</li>';
+                noBondageHtml += '<li>无特殊限制</li>';
             }
+            noBondageHtml += '</ul>';
+            document.getElementById('confNoBondage').innerHTML = noBondageHtml;
             
-            document.getElementById('confOtherPain').textContent = formData.get('other_pain') === 'yes' ? '是' : '否';
+            // 疼痛相关偏好
+            let painHtml = `<p>${userFormData.other_pain === 'yes' ? '希望体验除捆绑外的其他疼痛' : '不希望体验其他疼痛'}</p>`;
             
             // 疼痛忍耐程度
-            const painTolerance = formData.get('pain_tolerance');
             const painToleranceMap = {
                 'high': '恋痛',
                 'medium': '不怕',
                 'light': '轻微',
                 'none': '完全不要'
             };
-            document.getElementById('confPainTolerance').textContent = painToleranceMap[painTolerance] || '未选择';
+            painHtml += `<p>疼痛忍耐程度：<strong>${painToleranceMap[userFormData.pain_tolerance] || '未选择'}</strong></p>`;
             
-            // 可接受项目
-            const accepts = formData.getAll('accepts[]');
-            const acceptsList = document.getElementById('confAccepts');
-            acceptsList.innerHTML = '';
-            if (accepts.length > 0) {
-                accepts.forEach(value => {
-                    const nameMap = {
-                        'hair_pulling': '拉头发',
-                        'slapping': '耳光',
-                        'spanking': 'SP',
-                        'thigh_rope': '股绳'
-                    };
-                    const li = document.createElement('li');
-                    li.innerHTML = `<i class="fas fa-check"></i> ${nameMap[value] || value}`;
-                    acceptsList.appendChild(li);
+            // 具体项目接受度
+            if (userFormData.accepts && userFormData.accepts.length > 0) {
+                painHtml += '<p>能接受的特定项目：</p><ul>';
+                const acceptMap = {
+                    'hair_pulling': '拉头发',
+                    'slapping': '耳光',
+                    'spanking': 'SP',
+                    'thigh_rope': '股绳'
+                };
+                userFormData.accepts.forEach(accept => {
+                    painHtml += `<li><strong>${acceptMap[accept] || accept}</strong></li>`;
                 });
-            } else {
-                acceptsList.innerHTML = '<li>未选择</li>';
+                painHtml += '</ul>';
             }
             
-            document.getElementById('confHug').textContent = formData.get('hug') === 'yes' ? '可以' : '不可以';
-            document.getElementById('confSensoryDeprivation').textContent = formData.get('sensory_deprivation') === 'yes' ? '是' : '否';
+            document.getElementById('confPain').innerHTML = painHtml;
+            
+            // 互动偏好
+            let interactionHtml = `<p>接受拥抱：<strong>${userFormData.hug === 'yes' ? '是' : '否'}</strong></p>`;
+            interactionHtml += `<p>喜欢"五感剥夺"玩法：<strong>${userFormData.sensory_deprivation === 'yes' ? '是' : '否'}</strong></p>`;
             
             // 蒙眼接受度
-            const blindfold = formData.get('blindfold');
             const blindfoldMap = {
                 'enjoy': '享受',
                 'accept': '可以接受',
                 'no': '不接受（会不安）'
             };
-            document.getElementById('confBlindfold').textContent = blindfoldMap[blindfold] || '未选择';
+            interactionHtml += `<p>蒙眼接受度：<strong>${blindfoldMap[userFormData.blindfold] || '未选择'}</strong></p>`;
             
             // 堵嘴接受度
-            const gag = formData.get('gag');
             const gagMap = {
                 'enjoy': '享受',
                 'light': '可以轻度接受',
                 'no': '不接受'
             };
-            document.getElementById('confGag').textContent = gagMap[gag] || '未选择';
+            interactionHtml += `<p>堵嘴接受度：<strong>${gagMap[userFormData.gag] || '未选择'}</strong></p>`;
             
             // 呼吸控制接受度
-            const breathControl = formData.get('breath_control');
             const breathControlMap = {
                 'enjoy': '享受',
-                'neck': '颈部束缚控制',
-                'light': '轻度控制',
+                'neck': '脖颈呼吸控制',
+                'light': '轻度呼吸控制',
                 'no': '不接受'
             };
-            document.getElementById('confBreathControl').textContent = breathControlMap[breathControl] || '未选择';
+            interactionHtml += `<p>呼吸控制接受度：<strong>${breathControlMap[userFormData.breath_control] || '未选择'}</strong></p>`;
             
-            document.getElementById('confRecording').textContent = formData.get('recording') === 'yes' ? '是' : '否';
+            document.getElementById('confInteraction').innerHTML = interactionHtml;
             
-            // 期望氛围/情感
-            const feelings = formData.get('feelings');
-            const feelingsList = document.getElementById('confFeelings');
-            feelingsList.innerHTML = '';
-            if (feelings) {
-                feelings.split(',').forEach(id => {
-                    const tag = feelingTags.find(t => t.id === id);
-                    if (tag) {
-                        const li = document.createElement('li');
-                        li.innerHTML = `<i class="${tag.icon}"></i> ${tag.name}`;
-                        feelingsList.appendChild(li);
-                    }
+            // 影像记录
+            document.getElementById('confRecording').innerHTML = 
+                `<p>${userFormData.recording === 'yes' ? '希望留下影像记录' : '不希望留下影像记录'}</p>`;
+            
+            // 期望的感受
+            let feelingsHtml = '<ul>';
+            if (userFormData.feelingItems && userFormData.feelingItems.length > 0) {
+                userFormData.feelingItems.forEach(feeling => {
+                    feelingsHtml += `<li>${feeling}</li>`;
                 });
             } else {
-                feelingsList.innerHTML = '<li>未选择</li>';
+                feelingsHtml += '<li>无特殊偏好</li>';
             }
-            
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('confirmationPage').style.display = 'block';
+            feelingsHtml += '</ul>';
+            document.getElementById('confFeelings').innerHTML = feelingsHtml;
         }
         
-        // 显示表单
-        function showForm() {
+        // 返回修改
+        function goBackToForm() {
             document.getElementById('confirmationPage').style.display = 'none';
             document.getElementById('formContent').style.display = 'block';
+            document.querySelector('.status-bar').style.display = 'flex';
+        }
+        
+        // 打印确认页
+        function printConfirmation() {
+            const printContent = document.getElementById('confirmationPage').innerHTML;
+            const originalContent = document.body.innerHTML;
+            
+            document.body.innerHTML = `
+                <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+                    <h1 style="text-align: center; color: #8b5cf6; margin-bottom: 30px;">绳缚体验调查表 - 确认页</h1>
+                    ${printContent}
+                </div>
+            `;
+            
+            window.print();
+            document.body.innerHTML = originalContent;
+            window.location.reload();
         }
         
         // 表单提交处理
         document.getElementById('ropeForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 这里可以添加表单验证
+            // 收集表单数据
+            collectFormData();
             
-            // 模拟提交成功
-            showSuccessMessage();
+            // 在实际使用中，这里会提交到Formspree
+            // 现在先显示成功消息
+            document.getElementById('formContent').style.display = 'none';
+            document.querySelector('.status-bar').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
             
-            // 实际提交到Formspree
-            fetch(this.action, {
+            // 实际提交代码（取消注释并替换YOUR_FORM_ID后使用）
+            /*
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
                 method: 'POST',
-                body: new FormData(this),
+                body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
-            }).then(response => {
+            })
+            .then(response => {
                 if (response.ok) {
-                    console.log('表单提交成功');
+                    document.getElementById('formContent').style.display = 'none';
+                    document.querySelector('.status-bar').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
                 } else {
-                    console.error('表单提交失败');
+                    alert('提交失败，请稍后重试');
                 }
-            }).catch(error => {
-                console.error('表单提交错误:', error);
+            })
+            .catch(error => {
+                alert('提交失败，请检查网络连接');
             });
+            */
         });
         
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            initBodyPartSelection('noTouchAreas', 'no_touch_input');
-            initBodyPartSelection('noBondageAreas', 'no_bondage_input');
+            initBodyPartSelectors();
             initFeelingTags();
+            
+            // 更新状态栏
+            const sections = document.querySelectorAll('.form-section');
+            const statusItems = document.querySelectorAll('.status-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(sections).indexOf(entry.target);
+                        statusItems.forEach((item, i) => {
+                            if (i <= index) {
+                                item.classList.add('active');
+                            } else {
+                                item.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            sections.forEach(section => observer.observe(section));
         });
     </script>
 </body>
