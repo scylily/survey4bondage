@@ -312,8 +312,102 @@
             margin-bottom: 20px;
         }
         
+        /* 确认页面样式 */
+        .confirmation-page {
+            padding: 40px;
+            display: none;
+        }
+        
+        .confirmation-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px dashed var(--border);
+        }
+        
+        .confirmation-section:last-child {
+            border-bottom: none;
+        }
+        
+        .confirmation-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--secondary);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .confirmation-label {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .confirmation-label i {
+            color: var(--primary);
+        }
+        
+        .confirmation-value {
+            color: var(--text-light);
+            padding-left: 26px;
+        }
+        
+        .confirmation-value ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .confirmation-value li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .confirmation-value li i {
+            color: var(--primary);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn-action {
+            padding: 12px 30px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
         @media (max-width: 768px) {
-            .header, .content {
+            .header, .content, .confirmation-page {
                 padding: 25px;
             }
             
@@ -329,6 +423,15 @@
             
             .body-part-grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-action {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -355,8 +458,9 @@
             </div>
         </div>
         
+        <!-- 表单部分 -->
         <form id="ropeForm" action="https://formspree.io/f/xvzzowko" method="POST">
-            <div class="content">
+            <div class="content" id="formContent">
                 <!-- 第一部分：安全须知 -->
                 <div class="form-section">
                     <div class="section-title">
@@ -534,17 +638,17 @@
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="accepts[]" value="spanking">
-                                <span>SP（拍打）</span>
+                                <span>SP</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="accepts[]" value="thigh_rope">
-                                <span>股绳（大腿根部捆绑）</span>
+                                <span>股绳</span>
                             </label>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">可以接受拥抱吗？</label>
+                        <label class="form-label">我们可能会有一些“身体接触”，你会接受拥抱吗？</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="hug" value="yes" required>
@@ -558,7 +662,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">对"五感剥夺"（如蒙眼、堵耳）玩法感兴趣吗？</label>
+                        <label class="form-label">对"五感剥夺"玩法感兴趣吗？</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="sensory_deprivation" value="yes" required>
@@ -662,15 +766,205 @@
             </div>
         </form>
         
+        <!-- 成功提交消息 -->
         <div class="success-message" id="successMessage">
             <i class="fas fa-check-circle"></i>
             <h2>提交成功！</h2>
             <p>感谢您填写问卷，我们会尽快与您联系确认细节。</p>
             <p>请记住：在活动开始前或过程中，您可随时撤销同意。</p>
+            
+            <div class="action-buttons" style="margin-top: 40px;">
+                <button class="btn-action btn-primary" onclick="showConfirmation()">
+                    <i class="fas fa-eye"></i> 查看已填写的调查表
+                </button>
+                <button class="btn-action btn-secondary" onclick="location.reload()">
+                    <i class="fas fa-redo"></i> 重新填写
+                </button>
+            </div>
+        </div>
+        
+        <!-- 确认页面（显示用户填写的内容） -->
+        <div class="confirmation-page" id="confirmationPage">
+            <div class="section-title">
+                <i class="fas fa-file-contract"></i>
+                <h2>您已填写的调查表</h2>
+            </div>
+            
+            <div class="confirmation-section">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-exclamation-triangle"></i> 第一部分：安全须知与责任确认</h3>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-check-circle"></i>
+                        <span>安全须知确认</span>
+                    </div>
+                    <div class="confirmation-value" id="confSafety">
+                        <!-- 安全须知确认内容 -->
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <h3><i class="fas fa-skull-crossbones"></i> 重要安全须知</h3>
+                    <p>绳缚过程中可能因绳索压迫导致肢体血液循环受限而麻木。若压迫神经，严重时可能导致神经损伤。血液循环问题通常在解绳后缓解。为避免神经损伤，<strong>如在过程中感到任何异常感觉（如麻木、刺痛），必须立即发出信号</strong>。</p>
+                    <p>解绳需要时间，若感到不适，请在承受范围内预留缓冲时间。若需紧急解绳，请立即明确告知。</p>
+                    <p><strong>身体或心理任何不适，均有权随时、以任何方式叫停，无需犹豫。</strong></p>
+                </div>
+            </div>
+            
+            <div class="confirmation-section">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-heartbeat"></i> 第二部分：参与者基本信息与健康声明</h3>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-user"></i>
+                        <span>称呼方式</span>
+                    </div>
+                    <div class="confirmation-value" id="confNickname">
+                        <!-- 称呼内容 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>是否成年</span>
+                    </div>
+                    <div class="confirmation-value" id="confAdult">
+                        <!-- 成年状态 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>健康问题声明</span>
+                    </div>
+                    <div class="confirmation-value" id="confMedical">
+                        <!-- 健康问题 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-plus-square"></i>
+                        <span>身体穿孔/埋钉</span>
+                    </div>
+                    <div class="confirmation-value" id="confPiercings">
+                        <!-- 穿孔信息 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="confirmation-section">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-sliders-h"></i> 第三部分：活动偏好与界限设置</h3>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>安全词/安全动作</span>
+                    </div>
+                    <div class="confirmation-value" id="confSafeword">
+                        <!-- 安全词 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-tshirt"></i>
+                        <span>裸露程度接受度</span>
+                    </div>
+                    <div class="confirmation-value" id="confTopless">
+                        <!-- 裸露接受度 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-sticky-note"></i>
+                        <span>身体痕迹接受度</span>
+                    </div>
+                    <div class="confirmation-value" id="confMarks">
+                        <!-- 痕迹接受度 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-hand-paper"></i>
+                        <span>不希望被触碰的部位</span>
+                    </div>
+                    <div class="confirmation-value" id="confNoTouch">
+                        <!-- 不希望触碰的部位 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-ban"></i>
+                        <span>不可捆绑的部位</span>
+                    </div>
+                    <div class="confirmation-value" id="confNoBondage">
+                        <!-- 不可捆绑的部位 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-skull"></i>
+                        <span>疼痛相关偏好</span>
+                    </div>
+                    <div class="confirmation-value" id="confPain">
+                        <!-- 疼痛偏好 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-heart"></i>
+                        <span>互动偏好</span>
+                    </div>
+                    <div class="confirmation-value" id="confInteraction">
+                        <!-- 互动偏好 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-camera"></i>
+                        <span>影像记录</span>
+                    </div>
+                    <div class="confirmation-value" id="confRecording">
+                        <!-- 影像记录 -->
+                    </div>
+                </div>
+                
+                <div class="confirmation-item">
+                    <div class="confirmation-label">
+                        <i class="fas fa-feather-alt"></i>
+                        <span>期望的感受</span>
+                    </div>
+                    <div class="confirmation-value" id="confFeelings">
+                        <!-- 期望感受 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="privacy-note">
+                <p><strong>最终确认：</strong>本人确认，以上所填内容均真实有效。本人理解并认同"安全、理性、知情、同意"的原则，并知晓在活动开始前或过程中，可随时撤销同意。活动结束后，不可撤销已发生的同意。</p>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn-action btn-secondary" onclick="goBackToForm()">
+                    <i class="fas fa-arrow-left"></i> 返回修改
+                </button>
+                <button class="btn-action btn-primary" onclick="printConfirmation()">
+                    <i class="fas fa-print"></i> 打印确认页
+                </button>
+            </div>
         </div>
         
         <div class="footer">
-            <p>© 2026 绳缚体验调查表 | 基于安全、理性、知情、同意的原则</p>
+            <p>© 2023 绳缚体验调查表 | 基于安全、理性、知情、同意的原则</p>
             <p>此表格是双方沟通的起点，在活动开始前，我们将就填写内容进行面对面或线上交流，以最终确认所有细节。</p>
         </div>
     </div>
@@ -686,7 +980,7 @@
             { id: 'fingers', name: '手指', icon: 'fas fa-hand-point-up' },
             { id: 'waist', name: '腰部', icon: 'fas fa-arrows-alt-h' },
             { id: 'buttocks', name: '臀部', icon: 'fas fa-user-circle' },
-            { id: 'genitals', name: '下体', icon: 'fas fa-ban' },
+            { id: 'genitals', name: '下体', icon: 'fas fa-chevron-circle-down' },
             { id: 'legs', name: '下肢', icon: 'fas fa-walking' },
             { id: 'feet', name: '脚', icon: 'fas fa-shoe-prints' }
         ];
@@ -698,6 +992,9 @@
             '爱抚的', '挑逗的', '粗鲁的', '纯粹的绳缚'
         ];
         
+        // 存储用户填写的数据
+        let userFormData = {};
+        
         // 初始化身体部位选择
         function initBodyPartSelectors() {
             const noTouchContainer = document.getElementById('noTouchAreas');
@@ -708,6 +1005,7 @@
                 const touchDiv = document.createElement('div');
                 touchDiv.className = 'body-part-item';
                 touchDiv.dataset.id = part.id;
+                touchDiv.dataset.name = part.name;
                 touchDiv.innerHTML = `<i class="${part.icon}"></i><span>${part.name}</span>`;
                 touchDiv.addEventListener('click', () => {
                     touchDiv.classList.toggle('selected');
@@ -719,6 +1017,7 @@
                 const bondageDiv = document.createElement('div');
                 bondageDiv.className = 'body-part-item';
                 bondageDiv.dataset.id = part.id;
+                bondageDiv.dataset.name = part.name;
                 bondageDiv.innerHTML = `<i class="${part.icon}"></i><span>${part.name}</span>`;
                 bondageDiv.addEventListener('click', () => {
                     bondageDiv.classList.toggle('selected');
@@ -736,6 +1035,7 @@
                 const tag = document.createElement('div');
                 tag.className = 'feeling-tag';
                 tag.textContent = feeling;
+                tag.dataset.value = feeling;
                 tag.addEventListener('click', () => {
                     tag.classList.toggle('selected');
                     updateHiddenInput('feelings_input', 'feelingTags');
@@ -761,13 +1061,226 @@
             input.value = values.join(',');
         }
         
+        // 收集所有表单数据
+        function collectFormData() {
+            const form = document.getElementById('ropeForm');
+            const formData = new FormData(form);
+            userFormData = {};
+            
+            // 收集所有表单字段
+            for (let [key, value] of formData.entries()) {
+                if (key === 'accepts[]') {
+                    if (!userFormData.accepts) userFormData.accepts = [];
+                    userFormData.accepts.push(value);
+                } else {
+                    userFormData[key] = value;
+                }
+            }
+            
+            // 收集身体部位选择
+            const noTouchItems = document.querySelectorAll('#noTouchAreas .selected');
+            userFormData.noTouchItems = Array.from(noTouchItems).map(item => ({
+                id: item.dataset.id,
+                name: item.dataset.name
+            }));
+            
+            const noBondageItems = document.querySelectorAll('#noBondageAreas .selected');
+            userFormData.noBondageItems = Array.from(noBondageItems).map(item => ({
+                id: item.dataset.id,
+                name: item.dataset.name
+            }));
+            
+            // 收集感受标签
+            const feelingItems = document.querySelectorAll('#feelingTags .selected');
+            userFormData.feelingItems = Array.from(feelingItems).map(item => item.textContent);
+            
+            return userFormData;
+        }
+        
+        // 显示确认页面
+        function showConfirmation() {
+            // 隐藏成功消息，显示确认页面
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('confirmationPage').style.display = 'block';
+            
+            // 填充确认页面的数据
+            populateConfirmationPage();
+        }
+        
+        // 填充确认页面
+        function populateConfirmationPage() {
+            // 安全须知确认
+            document.getElementById('confSafety').innerHTML = 
+                `<p>✅ 已确认理解并同意所有安全须知内容</p>`;
+            
+            // 基本信息
+            document.getElementById('confNickname').innerHTML = 
+                `<p>${userFormData.nickname || '未填写'}</p>`;
+            
+            document.getElementById('confAdult').innerHTML = 
+                `<p>${userFormData.adult === 'yes' ? '是' : '否'}</p>`;
+            
+            document.getElementById('confMedical').innerHTML = 
+                `<p>${userFormData.medical_history || '无'}</p>`;
+            
+            document.getElementById('confPiercings').innerHTML = 
+                `<p>${userFormData.piercings || '无'}</p>`;
+            
+            // 安全词
+            document.getElementById('confSafeword').innerHTML = 
+                `<p><strong>${userFormData.safeword || '未设置'}</strong></p>
+                 <p class="form-help">在紧急情况下说出此安全词或做出安全动作，将立即中止活动</p>`;
+            
+            // 裸露程度
+            document.getElementById('confTopless').innerHTML = 
+                `<p>${userFormData.topless === 'accept' ? '接受上半身赤裸' : '不接受上半身赤裸'}</p>
+                 <p class="form-help">注：下体需穿着内裤</p>`;
+            
+            // 痕迹接受度
+            let marksHtml = `<p>${userFormData.marks === 'accept' ? '能接受痕迹' : '不能接受痕迹'}</p>`;
+            if (userFormData.marks === 'not_accept' && userFormData.no_marks_areas) {
+                marksHtml += `<p class="form-help">不可留痕区域：${userFormData.no_marks_areas}</p>`;
+            }
+            document.getElementById('confMarks').innerHTML = marksHtml;
+            
+            // 不希望被触碰的部位
+            let noTouchHtml = '<ul>';
+            if (userFormData.noTouchItems && userFormData.noTouchItems.length > 0) {
+                userFormData.noTouchItems.forEach(item => {
+                    const part = bodyParts.find(p => p.id === item.id);
+                    noTouchHtml += `<li><i class="${part.icon}"></i> ${item.name}</li>`;
+                });
+            } else {
+                noTouchHtml += '<li>无特殊限制</li>';
+            }
+            noTouchHtml += '</ul>';
+            document.getElementById('confNoTouch').innerHTML = noTouchHtml;
+            
+            // 不可捆绑的部位
+            let noBondageHtml = '<ul>';
+            if (userFormData.noBondageItems && userFormData.noBondageItems.length > 0) {
+                userFormData.noBondageItems.forEach(item => {
+                    const part = bodyParts.find(p => p.id === item.id);
+                    noBondageHtml += `<li><i class="${part.icon}"></i> ${item.name}</li>`;
+                });
+            } else {
+                noBondageHtml += '<li>无特殊限制</li>';
+            }
+            noBondageHtml += '</ul>';
+            document.getElementById('confNoBondage').innerHTML = noBondageHtml;
+            
+            // 疼痛相关偏好
+            let painHtml = `<p>${userFormData.other_pain === 'yes' ? '希望体验除捆绑外的其他疼痛' : '不希望体验其他疼痛'}</p>`;
+            
+            // 疼痛忍耐程度
+            const painToleranceMap = {
+                'none': '完全不要',
+                'light': '轻微',
+                'medium': '不怕',
+                'high': '恋痛'
+            };
+            painHtml += `<p>疼痛忍耐程度：<strong>${painToleranceMap[userFormData.pain_tolerance] || '未选择'}</strong></p>`;
+            
+            // 具体项目接受度
+            if (userFormData.accepts && userFormData.accepts.length > 0) {
+                painHtml += '<p>接受的特定项目：</p><ul>';
+                const acceptMap = {
+                    'hair_pulling': '拉头发',
+                    'slapping': '耳光',
+                    'spanking': 'SP（拍打）',
+                    'thigh_rope': '股绳（大腿根部捆绑）'
+                };
+                userFormData.accepts.forEach(accept => {
+                    painHtml += `<li>${acceptMap[accept] || accept}</li>`;
+                });
+                painHtml += '</ul>';
+            }
+            
+            document.getElementById('confPain').innerHTML = painHtml;
+            
+            // 互动偏好
+            let interactionHtml = `<p>接受拥抱：${userFormData.hug === 'yes' ? '是' : '否'}</p>`;
+            interactionHtml += `<p>喜欢"五感剥夺"玩法：${userFormData.sensory_deprivation === 'yes' ? '是' : '否'}</p>`;
+            
+            // 蒙眼接受度
+            const blindfoldMap = {
+                'no': '不接受（会不安）',
+                'accept': '可以接受',
+                'enjoy': '享受'
+            };
+            interactionHtml += `<p>蒙眼接受度：${blindfoldMap[userFormData.blindfold] || '未选择'}</p>`;
+            
+            // 堵嘴接受度
+            const gagMap = {
+                'no': '不接受',
+                'light': '可以轻度接受',
+                'enjoy': '享受'
+            };
+            interactionHtml += `<p>堵嘴接受度：${gagMap[userFormData.gag] || '未选择'}</p>`;
+            
+            // 呼吸控制接受度
+            const breathControlMap = {
+                'no': '不接受',
+                'light': '轻度呼吸控制',
+                'neck': '脖颈呼吸控制',
+                'enjoy': '享受'
+            };
+            interactionHtml += `<p>呼吸控制接受度：${breathControlMap[userFormData.breath_control] || '未选择'}</p>`;
+            
+            document.getElementById('confInteraction').innerHTML = interactionHtml;
+            
+            // 影像记录
+            document.getElementById('confRecording').innerHTML = 
+                `<p>${userFormData.recording === 'yes' ? '希望留下影像记录' : '不希望留下影像记录'}</p>`;
+            
+            // 期望的感受
+            let feelingsHtml = '<ul>';
+            if (userFormData.feelingItems && userFormData.feelingItems.length > 0) {
+                userFormData.feelingItems.forEach(feeling => {
+                    feelingsHtml += `<li>${feeling}</li>`;
+                });
+            } else {
+                feelingsHtml += '<li>无特殊偏好</li>';
+            }
+            feelingsHtml += '</ul>';
+            document.getElementById('confFeelings').innerHTML = feelingsHtml;
+        }
+        
+        // 返回修改
+        function goBackToForm() {
+            document.getElementById('confirmationPage').style.display = 'none';
+            document.getElementById('formContent').style.display = 'block';
+            document.querySelector('.status-bar').style.display = 'flex';
+        }
+        
+        // 打印确认页
+        function printConfirmation() {
+            const printContent = document.getElementById('confirmationPage').innerHTML;
+            const originalContent = document.body.innerHTML;
+            
+            document.body.innerHTML = `
+                <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+                    <h1 style="text-align: center; color: #8b5cf6; margin-bottom: 30px;">绳缚体验调查表 - 确认页</h1>
+                    ${printContent}
+                </div>
+            `;
+            
+            window.print();
+            document.body.innerHTML = originalContent;
+            window.location.reload();
+        }
+        
         // 表单提交处理
         document.getElementById('ropeForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // 收集表单数据
+            collectFormData();
+            
             // 在实际使用中，这里会提交到Formspree
             // 现在先显示成功消息
-            document.querySelector('.content').style.display = 'none';
+            document.getElementById('formContent').style.display = 'none';
+            document.querySelector('.status-bar').style.display = 'none';
             document.getElementById('successMessage').style.display = 'block';
             
             // 实际提交代码（取消注释并替换YOUR_FORM_ID后使用）
@@ -784,7 +1297,8 @@
             })
             .then(response => {
                 if (response.ok) {
-                    document.querySelector('.content').style.display = 'none';
+                    document.getElementById('formContent').style.display = 'none';
+                    document.querySelector('.status-bar').style.display = 'none';
                     document.getElementById('successMessage').style.display = 'block';
                 } else {
                     alert('提交失败，请稍后重试');
@@ -824,5 +1338,4 @@
         });
     </script>
 </body>
-
 </html>
