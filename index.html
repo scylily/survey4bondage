@@ -494,11 +494,11 @@
             </div>
             <div class="status-item">
                 <i class="fas fa-heartbeat"></i>
-                <span>健康声明</span>
+                <span>基本信息</span>
             </div>
             <div class="status-item">
                 <i class="fas fa-sliders-h"></i>
-                <span>偏好设置</span>
+                <span>喜好设置</span>
             </div>
         </div>
         
@@ -509,7 +509,7 @@
                 <div class="form-section">
                     <div class="section-title">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <h2>第一部分：安全须知与责任确认</h2>
+                        <h2>第一部分：安全须知与准备事项</h2>
                     </div>
                     
                     <div class="warning-box">
@@ -546,11 +546,11 @@
                 <div class="form-section">
                     <div class="section-title">
                         <i class="fas fa-heartbeat"></i>
-                        <h2>第二部分：参与者基本信息与健康声明</h2>
+                        <h2>第二部分：体验者基本信息与健康声明</h2>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="nickname">我喜欢的称呼：</label>
+                        <label class="form-label" for="nickname">可以这样称呼我：</label>
                         <input type="text" id="nickname" name="nickname" class="input-text" placeholder="请填写您希望被称呼的方式" required>
                     </div>
                     
@@ -580,11 +580,11 @@
                     </div>
                 </div>
                 
-                <!-- 第三部分：偏好设置 -->
+                <!-- 第三部分：喜好设置 -->
                 <div class="form-section">
                     <div class="section-title">
                         <i class="fas fa-sliders-h"></i>
-                        <h2>第三部分：活动偏好与界限设置</h2>
+                        <h2>第三部分：程度喜好与界限设置</h2>
                     </div>
                     
                     <div class="form-group">
@@ -594,7 +594,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">裸露程度接受度：</label>
+                        <label class="form-label">身体裸露接受度：</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="topless" value="accept" required>
@@ -790,7 +790,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">是否希望或允许在过程中留下影像（照片/视频）？</label>
+                        <label class="form-label">是否希望或允许在过程中留下影像（照片/视频）？<strong>【未经允许不可对外流传】</strong></label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="recording" value="yes" required>
@@ -847,7 +847,7 @@
             </div>
             
             <div class="confirmation-section">
-                <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-exclamation-triangle"></i> 第一部分：安全须知与责任确认</h3>
+                <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-exclamation-triangle"></i> 第一部分：安全须知与准备事项</h3>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
@@ -860,7 +860,7 @@
                 </div>
                                             
             <div class="confirmation-section">
-                <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-heartbeat"></i> 第二部分：参与者基本信息与健康声明</h3>
+                <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-heartbeat"></i> 第二部分：体验者基本信息与健康声明</h3>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
@@ -904,7 +904,7 @@
             </div>
             
             <div class="confirmation-section">
-                <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-sliders-h"></i> 第三部分：活动偏好与界限设置</h3>
+                <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-sliders-h"></i> 第三部分：程度喜好与界限设置</h3>
                 
                 <div class="confirmation-item">
                     <div class="confirmation-label">
@@ -919,7 +919,7 @@
                 <div class="confirmation-item">
                     <div class="confirmation-label">
                         <i class="fas fa-tshirt"></i>
-                        <span>裸露程度接受度</span>
+                        <span>身体裸露接受度</span>
                     </div>
                     <div class="confirmation-value" id="confTopless">
                         <!-- 裸露接受度 -->
@@ -949,7 +949,7 @@
                 <div class="confirmation-item">
                     <div class="confirmation-label">
                         <i class="fas fa-ban"></i>
-                        <span>不可捆绑的部位</span>
+                        <span>不可以被捆绑的部位</span>
                     </div>
                     <div class="confirmation-value" id="confNoBondage">
                         <!-- 不可捆绑的部位 -->
@@ -1012,7 +1012,7 @@
         </div>
         
         <div class="footer">
-            <p>© 2026 绳缚体验调查表 | 基于安全、理性、知情、同意的原则</p>
+            <p>© 2026 绳缚体验知情同意与偏好调查表 | 基于安全、理性、知情、同意的原则</p>
             <p>此表格是双方沟通的起点，在活动开始前，我们将就填写内容进行面对面或线上交流，以最终确认所有细节。</p>
         </div>
     </div>
@@ -1035,9 +1035,11 @@
         
         // 感受标签数据
         const feelings = [
-            '平静', '无助', '被控制', '羞辱', '受虐', '受难的', '色情', 
-            '情感释放', '充满活力', '偏技术无情感交流', '中立的，有些情感交流',
-            '爱抚的', '挑逗的', '粗鲁的', '无过多接触，单纯想感受绳子带来的束缚'
+            '平静的', '无助状态', '情感释放', '充满活力',
+			'被控制', '被羞辱', '受虐', '受难的', 
+            '偏技术，无情感交流', '中立的，有些情感交流',
+            '爱抚的', '粗鲁的', '挑逗的', '偏色情的', 
+			'无过多接触，单纯想感受绳子带来的束缚感' 
         ];
         
         // 存储用户填写的数据
@@ -1159,7 +1161,7 @@
         function populateConfirmationPage() {
             // 安全须知确认
             document.getElementById('confSafety').innerHTML = 
-                `<p>✅ 已确认理解并同意所有安全须知内容</p>`;
+                `<p>✅ 我已确认理解并同意所有安全须知内容</p>`;
             
             // 基本信息
             document.getElementById('confNickname').innerHTML = 
@@ -1177,17 +1179,17 @@
             // 安全词
             document.getElementById('confSafeword').innerHTML = 
                 `<p><strong>${userFormData.safeword || '未设置'}</strong></p>
-                 <p class="form-help">在紧急情况下说出此安全词或做出安全动作，将立即中止活动</p>`;
+                 <p class="form-help">在紧急情况下说出此安全词或做出安全动作，将无条件立即中止活动</p>`;
             
             // 裸露程度
             document.getElementById('confTopless').innerHTML = 
                 `<p>${userFormData.topless === 'accept' ? '接受上半身赤裸' : '不接受上半身赤裸'}</p>
-                 <p class="form-help">注：下体需穿着内裤</p>`;
+                 <p class="form-help">注：下体私密部位需穿着内裤</p>`;
             
             // 痕迹接受度
             let marksHtml = `<p>${userFormData.marks === 'accept' ? '能接受痕迹' : '不能接受痕迹'}</p>`;
             if (userFormData.marks === 'not_accept' && userFormData.no_marks_areas) {
-                marksHtml += `<p class="form-help">不可留痕区域：${userFormData.no_marks_areas}</p>`;
+                marksHtml += `<p class="form-help">不可以留下痕迹的区域：${userFormData.no_marks_areas}</p>`;
             }
             document.getElementById('confMarks').innerHTML = marksHtml;
             
@@ -1204,7 +1206,7 @@
             noTouchHtml += '</ul>';
             document.getElementById('confNoTouch').innerHTML = noTouchHtml;
             
-            // 不可捆绑的部位
+            // 不可以被捆绑的部位
             let noBondageHtml = '<ul>';
             if (userFormData.noBondageItems && userFormData.noBondageItems.length > 0) {
                 userFormData.noBondageItems.forEach(item => {
@@ -1218,7 +1220,7 @@
             document.getElementById('confNoBondage').innerHTML = noBondageHtml;
             
             // 疼痛相关偏好
-            let painHtml = `<p>${userFormData.other_pain === 'yes' ? '希望体验除捆绑外的其他疼痛' : '不希望体验其他疼痛'}</p>`;
+            let painHtml = `<p>${userFormData.other_pain === 'yes' ? '希望体验除捆绑感外的其他疼痛' : '不希望体验其他疼痛'}</p>`;
             
             // 疼痛忍耐程度
             const painToleranceMap = {
@@ -1277,7 +1279,7 @@
             
             document.getElementById('confInteraction').innerHTML = interactionHtml;
             
-            // 影像记录
+            // 影像记录<strong>【未经允许不可对外流传】</strong>
             document.getElementById('confRecording').innerHTML = 
                 `<p>${userFormData.recording === 'yes' ? '希望留下影像记录' : '不希望留下影像记录'}</p>`;
             
@@ -1308,7 +1310,7 @@
             
             document.body.innerHTML = `
                 <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
-                    <h1 style="text-align: center; color: #8b5cf6; margin-bottom: 30px;">绳缚体验调查表 - 确认页</h1>
+                    <h1 style="text-align: center; color: #8b5cf6; margin-bottom: 30px;">绳缚体验知情同意与偏好调查表 - 确认页</h1>
                     ${printContent}
                 </div>
             `;
@@ -1387,3 +1389,4 @@
     </script>
 </body>
 </html>
+
